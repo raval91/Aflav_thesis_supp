@@ -1,6 +1,5 @@
 THE ECOLOGICAL AND POPULATION GENOMICS OF THE
 WILD YELLOW-NECKED MOUSE APODEMUS FLAVICOLLIS
-	SUPPLEMENTARY MATERIALS
 
 
 This repository contains the supplementary materials for the above titled thesis.
@@ -58,15 +57,15 @@ code
 CHAPTER3
 
  code 
-- allele_freq_sims/cluster 
+- allele_freq_sims/cluster/  
 	Scripts to simulate null allele frequency distributions 
 	on a high performance cluster
 
-- allele_freq_sims/MAF_clusterRun_control.sh instructs the cluster to run
+- allele_freq_sims/cluster/MAF_clusterRun_control.sh instructs the cluster to run
 	  the simulations as a batch job
-- allele_freq_sims/nullMAFsimulations.sh parallelises the simulations
-- allele_freq_sims/MAF_clusterRun.R runs the simulations in R
-- allele_freq_sims/extract_confint.R extracts the confidence intervals from 
+- allele_freq_sims/cluster/nullMAFsimulations.sh parallelises the simulations
+- allele_freq_sims/cluster/MAF_clusterRun.R runs the simulations in R
+- allele_freq_sims/cluster/extract_confint.R extracts the confidence intervals from 
 		  the output of the simulations
 	
 - allele_freq_sims/nullMAFsimulations.R
