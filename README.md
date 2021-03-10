@@ -121,13 +121,14 @@ CHAPTER4
 
  tables_and_figs	
 	
-- cluster_indices.txt
+- cluster_analysis/cluster_indices.txt
 	Table of indices to determine optimal number of clusters in a 
 	K-means cluster analysis
 
-- k3-10
+- cluster_analysis/k3.pdf - cluster_analysis/k10.pdf
 	figures of cluster analyses for heterothermy data when K=3-10
-	- diagnostic_plots/repeatability/
+
+- diagnostic_plots/repeatability/
 	Residuals vs fitted values plots of repeatability models including
 	sex+mb+bmr, sex+mb and mb as variables in the models. Also included 
 	are diagnostic plots for for models of each individual sex
