@@ -34,8 +34,11 @@ code
 - parameter_optimisation_metrics.txt
 	metrics extracted from stacks 2.3d to optimise parameters
 
+- relatedness_results.txt
+	Pairwise relatedness estimated by max-likelihood, GCTA, KING and PLINK method of moments to identify duplicate samples
+	
 - relatedness_results_duplicatesMerged.txt
-	Pairwise relatedness estimated by max-likelihood, GCTA, KING and PLINK method of moments
+	Pairwise relatedness estimated by max-likelihood estimation after duplicate samples had been merged
 
 - genotyping_error_rates.txt
 	genotyping error rates as extimated using TIGER
