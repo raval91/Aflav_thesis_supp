@@ -15,6 +15,7 @@ library(MASS)
 library(car)
 library(rstatix)
 library(dplyr)
+library(cowplot)
 
 #### DATA ORGANISATION ####
 #read in the data
@@ -243,6 +244,14 @@ ggplot(adjusted_data, aes(x = adjusted_bmr, y = adjusted_HI, colour = Sex)) +
 #create male and female dataframes
 HI_male <- HI_data[HI_data$Sex == "Male",]
 HI_female <- HI_data[HI_data$Sex == "Female",]
+
+#transform male and female HI data
+trans <- orderNorm(HI_male$HI1f)
+HI_male$HI_orderNorm <- trans$x.t
+
+trans <- orderNorm(HI_female$HI1f)
+HI_female$HI_orderNorm <- trans$x.t
+
 #repeatability using REML
 repeatability_mod <- lmer(HI_orderNorm ~ Sex + mb1 + BMR_min + 
                             (1 | Birth_year) + 
@@ -296,16 +305,21 @@ Anova(repeatability_mod_females1)
 #anova(repeatability_mod1, repeatability_mod2, repeatability_mod3)
 
 #model diagnostics
-plot(repeatability_mod1)
-plot(repeatability_mod2)
-plot(repeatability_mod3)
-plot(repeatability_mod_males)
-plot(repeatability_mod_males1)
-plot(repeatability_mod_females)
-plot(repeatability_mod_females1)
+p1 <- plot(repeatability_mod1)
+p2 <- plot(repeatability_mod2)
+p3 <- plot(repeatability_mod3)
+p4 <- plot(repeatability_mod_males)
+p5 <- plot(repeatability_mod_males1)
+p6 <- plot(repeatability_mod_females)
+p7 <- plot(repeatability_mod_females1)
 qqPlot(HI_data$HI_orderNorm)
 qqPlot(HI_male$HI_orderNorm)
 qqPlot(HI_female$HI_orderNorm)
+
+plot_grid(p1, p2, p3, nrow = 3, ncol = 1, labels = c("A", "B", "C"))#sexes together
+plot_grid(p4, p5, nrow = 2, ncol = 1, labels = c("A", "B"))#males
+plot_grid(p6, p7, nrow = 2, ncol = 1, labels = c("A", "B"))#females
+
 ####calculate repeatability
 ##predcted values from the model with fixed effects
 #overall
@@ -425,9 +439,9 @@ row.names(grm_phenotyped) <- IBD_0.05$sample.id#ensure rows are names as samples
 grm_phenotyped <- scale(grm_phenotyped, scale = F)
 
 #create a data framw from the relatedness matrix to plot a heatmap
-upper_triangle <- upper.tri(IBD_0.05$kinship)#new logical matrix of only the upper triangle
-relatedness.upperTriangle <- grm_phenotyped #take a copy of the original relatedness matrix
-grm_phenotyped[!upper_triangle]<-NA#set everything not in upper triangle to NA
+#upper_triangle <- upper.tri(IBD_0.05$kinship)#new logical matrix of only the upper triangle
+#relatedness.upperTriangle <- grm_phenotyped #take a copy of the original relatedness matrix
+#grm_phenotyped[!upper_triangle]<-NA#set everything not in upper triangle to NA
 relatedness<-na.omit(melt(grm_phenotyped, value.name ="relatedness")) #use melt to reshape the matrix into a along format df
 relatedness <- relatedness[order(relatedness$relatedness, decreasing = T),] #sort by descending relatedness
 names(relatedness) <- c("IID1", "IID2", "genomic_relatedness")
@@ -471,6 +485,13 @@ heritability_data$HI_orderNorm <- trans$x.t #replace with transformed data
 
 heritability_data_m <- heritability_data[heritability_data$Sex == "Male",]#males
 heritability_data_f <- heritability_data[heritability_data$Sex == "Female",]#females
+
+#transform male and female HI data
+trans <- orderNorm(heritability_data_m$HI1f)
+heritability_data_m$HI_orderNorm <- trans$x.t
+
+trans <- orderNorm(heritability_data_f$HI1f)
+heritability_data_f$HI_orderNorm <- trans$x.t
 
 #hertiability models
 heritability_mod1 <- lmer(HI_orderNorm ~ Sex + mb1 + BMR_min +
@@ -518,16 +539,20 @@ Anova(heritability_mod_females1)
 #anova(heritability_mod1, heritability_mod2, heritability_mod3)
 
 #model diagnostics
-plot(heritability_mod1)
-plot(heritability_mod2)
-plot(heritability_mod3)
-plot(heritability_mod_males)
-plot(heritability_mod_males1)
-plot(heritability_mod_females)
-plot(heritability_mod_females1)
+p1 <- plot(heritability_mod1)
+p2 <- plot(heritability_mod2)
+p3 <- plot(heritability_mod3)
+p4 <- plot(heritability_mod_males)
+p5 <- plot(heritability_mod_males1)
+p6 <- plot(heritability_mod_females)
+p7 <- plot(heritability_mod_females1)
 qqPlot(heritability_data$HI_orderNorm)
 qqPlot(heritability_data_m$HI_orderNorm)
 qqPlot(heritability_data_f$HI_orderNorm)
+
+plot_grid(p1, p2, p3, nrow = 3, ncol = 1, labels = c("A", "B", "C"))#sexes together
+plot_grid(p4, p5, nrow = 2, ncol = 1, labels = c("A", "B"))#males
+plot_grid(p6, p7, nrow = 2, ncol = 1, labels = c("A", "B"))#females
 
 ##predcted values from the model with fixed effects
 #overall
