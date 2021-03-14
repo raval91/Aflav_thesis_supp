@@ -1,5 +1,9 @@
 #### CLUSTER ANALYSIS OF HI DATA ####
 
+#tutorial for this found on https://uc-r.github.io/hc_clustering#replication
+#and https://uc-r.github.io/kmeans_clustering. seelalso
+# https://www.datanovia.com/en/courses/cluster-validation-essentials/
+#http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/
 
 rm(list = ls())
 
@@ -120,9 +124,21 @@ n_clust <- NbClust(data = cluster_data[,c(4:6)], distance = "euclidean", min.nc 
 k2 <- kmeans(cluster_data[,c(4:6)], centers = 2, nstart = 25)
 k3 <- kmeans(cluster_data[,c(4:6)], centers = 3, nstart = 25)
 k4 <- kmeans(cluster_data[,c(4:6)], centers = 4, nstart = 25)
+k5 <- kmeans(cluster_data[,c(4:6)], centers = 5, nstart = 25)
+k6 <- kmeans(cluster_data[,c(4:6)], centers = 6, nstart = 25)
+k7 <- kmeans(cluster_data[,c(4:6)], centers = 7, nstart = 25)
+k8 <- kmeans(cluster_data[,c(4:6)], centers = 8, nstart = 25)
+k9 <- kmeans(cluster_data[,c(4:6)], centers = 9, nstart = 25)
+k10 <- kmeans(cluster_data[,c(4:6)], centers = 10, nstart = 25)
 cluster_data$k2 <- k2$cluster
 cluster_data$k3 <- k3$cluster
 cluster_data$k4 <- k4$cluster
+cluster_data$k5 <- k5$cluster
+cluster_data$k6 <- k6$cluster
+cluster_data$k7 <- k7$cluster
+cluster_data$k8 <- k8$cluster
+cluster_data$k9 <- k9$cluster
+cluster_data$k10 <- k10$cluster
   
 #plot
 fviz_cluster(k2, data = cluster_data[,c(4:6)],
@@ -141,6 +157,123 @@ fviz_cluster(k2, data = cluster_data[,c(4:6)],
   theme(legend.position = c(0.8, 0.1)) #+
   #geom_point(data = cluster_data, aes(x = k2.pc1, y = k2.pc2, colour = k2, shape = Sex)) 
 
+p3 <- fviz_cluster(k3, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+
+p4 <- fviz_cluster(k4, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p5 <- fviz_cluster(k5, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p6 <- fviz_cluster(k6, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p7 <- fviz_cluster(k7, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p8 <- fviz_cluster(k8, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p9 <- fviz_cluster(k9, data = cluster_data[,c(4:6)],
+                   main = NULL,
+                   geom = "point",
+                   shape = 16,
+                   #alpha = 0,
+                   show.clust.cent = F,
+                   ellipse.type = "norm",
+                   ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+p10 <- fviz_cluster(k10, data = cluster_data[,c(4:6)],
+                    main = NULL,
+                    geom = "point",
+                    shape = 16,
+                    #alpha = 0,
+                    show.clust.cent = F,
+                    ellipse.type = "norm",
+                    ggtheme = theme_bw()
+) +
+  scale_colour_discrete(name = "Thermal strategy", labels = c("Generalists", "Specialists")) +
+  scale_fill_discrete(guide = F) +
+  geom_hline(yintercept = 0, lty = "dotted") +
+  geom_vline(xintercept = 0, lty = "dotted") +
+  theme(legend.position = "none") #+
+
+plot_grid(p3,p4,p5,p6,p7,p8,p9,p10, nrow = 4, ncol = 2, labels = c("A","B","C","D","E","F","G","H"))
+
+#biplot
 fviz_pca_biplot(PCA(cluster_data[,4:6]))
 
 #how many males and females belong to each cluster?
@@ -171,6 +304,7 @@ table(cluster_data[cluster_data$Sex == "Male",]$k3)#k3 males
 table(cluster_data[cluster_data$Sex == "Female",]$k3)#k3 females
 
 #what is the proportion of variance explained by each principle component?
+#https://stats.stackexchange.com/questions/87037/which-variables-explain-which-pca-components-and-vice-versa
 (eigen(cov(cluster_data[,4:6]))$vectors)^2
 get_eigenvalue(PCA(cluster_data[,4:6]))
 
