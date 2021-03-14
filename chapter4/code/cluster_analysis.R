@@ -19,6 +19,7 @@ library(factoextra)
 library(FactoMineR)
 library(NbClust)
 library(bestNormalize)
+library(cowplot)
 
 #### DATA ORGANISATION ####
 #read in the data
