@@ -109,7 +109,10 @@ CHAPTER4
 	Performs a K-means cluster analysis on the heterothermy data
 
 - torpor_analysis.R
-	Runs a full analysis if heterothermic responses including estimating repeatability, calculating relatedness and estimating heritability
+	Runs a full analysis of heterothermic responses including estimating repeatability, calculating relatedness and estimating heritability
+
+- BMR_analysis_REML_Final
+	Runs a full analysis of BMR data from _A. flavicollis_.
 
  tables_and_figs	
 	
