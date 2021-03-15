@@ -1,4 +1,4 @@
-ID1	ID2	TopRel	LLR	OH	BirthYear1	BirthYear2	AgeDif	Sex1	Sex2	SNPdBoth
+SampleID_1	SampleID_2	TopRel	LLR	OH	BirthYear1	BirthYear2	AgeDif	Sex1	Sex2	SNPdBoth
 Af_332	Af_618	PO	14.6	0	NA	NA	NA	3	3	689
 Af_573	Af_657	PO	12.76	0	NA	NA	NA	3	3	693
 Af_39	Af_576	PO	12.09	0	NA	NA	NA	3	3	664
