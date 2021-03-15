@@ -25,8 +25,7 @@ code
 	Runs an in silico restriction digest of a reference genome and outputs various plots
 
  tables_and_figs
-- A.flavicollis_demographic_data.txt
-	Life history and sample ID data on samples
+- A.flavicollis_demographic_data.txt - Life history and sample ID data on samples
 	- Sample - sample name
 	- ID - ID number
 	- Sex - m for male, f for female
@@ -36,23 +35,40 @@ code
 	- Birth_year - estimated birth year 
 	- Dupliated - independently replicated libraries prepared for genotyping error rate estimation. 0 for not duplicated, 1 for duplicated sample 
 
-- coverage_duplicates_merged.txt
-	Sequencing coverage of samples after duplicate samples have been merged
+- coverage_duplicates_merged.txt - mean sequencing coverage per sample after duplicate samples have been merged
+	- sample - sample name
+	- coverage_type - primary or secondary read
+	- mean - mean sequencing coverage
+	- stdev - standard deviation of sequencing coverage
+	- max - max sequencing coverage
+	- n_reads - number of reads per sample
 
-- parameter_optimisation_metrics.txt
-	metrics extracted from stacks 2.3d to optimise parameters
+- parameter_optimisation_metrics.txt - metrics extracted from stacks 2.3d to optimise parameters
+	- sample - sample name
+	- parameter - stacks parameter and parameter value (e.g. M0 means stacks parameter M = 0)
+	- n_assembled_loci - number of assembled loci
+	- n_polymorphic_loci - number of polymorphic loci
+	- n_snps - number of SNPs per sample
 
-- relatedness_results.txt
-	Pairwise relatedness estimated by max-likelihood, GCTA, KING and PLINK method of moments to identify duplicate samples
+- relatedness_results.txt - Pairwise relatedness estimated by max-likelihood, GCTA, KING and PLINK method of moments to identify duplicate samples
+	- sampleID_1 - sample name 1
+	- sampleID_2 - sample name 2
+	- MLE - maximum likelihood estimate of relatedness between sampleID_1 and sampleID_2
+	- KING_MoM - KING method of moments estimate of relatedness between sampleID_1 and sampleID_2
+	- PLINK_MoM - PLINK method of moments estimate of relatedness between sampleID_1 and sampleID_2
+	- GCTA - GCTA maximum likelihood estimate of relatedness between sampleID_1 and sampleID_2
 	
-- relatedness_results_duplicatesMerged.txt
-	Pairwise relatedness estimated by max-likelihood estimation after duplicate samples had been merged
+- relatedness_results_duplicatesMerged.txt - Pairwise relatedness estimated by max-likelihood estimation after duplicate samples had been merged
+	- column names as relatedness_results.txt
 
-- genotyping_error_rates.txt
-	genotyping error rates as extimated using TIGER
+- genotyping_error_rates.txt - genotyping error rates as extimated using TIGER
+	- Batch - sequencing lane
+	- ErrorRate - genotyping error rate
 
-- sample_groups.txt
-	list of independently sequenced samples across multiple sequencing lanes
+- sample_groups.txt - list of independently sequenced samples across multiple sequencing lanes
+	- Sample - sample name
+	- Group - unique id for groups of replicate samples
+	- Batch - sequencing lane the replicates were sequenced on
 
 
 
