@@ -9,20 +9,15 @@ Included within are the following:
 CHAPTER2
 
 code
-- denovo_map_parameter_optimisation.sh 
-	Optimises parameters to genotype samples using the denovo_map.pl pipeline of Stacks 2.3d.
+- denovo_map_parameter_optimisation.sh - Optimises parameters to genotype samples using the denovo_map.pl pipeline of Stacks 2.3d.
 
-- stacks_data_extraction.sh
-	Extracts the relevant metrics from Stacks 2.3d to optimise parameters. 
+- stacks_data_extraction.sh - Extracts the relevant metrics from Stacks 2.3d to optimise parameters. 
 
-- denovo_pipeline.sh
-	runs denovo_map.pl on the optimised parameter combination and prepares data for pedigree construction
+- denovo_pipeline.sh - runs denovo_map.pl on the optimised parameter combination and prepares data for pedigree construction
 
-- M.musculus_insilico_digestion_parallel_SbfI_MseI.R
-	Runs an in silico restriction digest of a reference genome and outputs various plots
+- M.musculus_insilico_digestion_parallel_SbfI_MseI.R - Runs an in silico restriction digest of a reference genome and outputs various plots
 
-- M.musculus_insilico_digestion_parallel_SbfI_MseI.R
-	Runs an in silico restriction digest of a reference genome and outputs various plots
+- M.musculus_insilico_digestion_parallel_SbfI_MseI.R - Runs an in silico restriction digest of a reference genome and outputs various plots
 
  tables_and_figs
 - A.flavicollis_demographic_data.txt - Life history and sample ID data on samples
@@ -79,7 +74,7 @@ CHAPTER3
 
 - allele_freq_sims/cluster/MAF_clusterRun_control.sh - instructs the cluster to run the simulations as a batch job
 	
-- allele_freq_sims/cluster/nullMAFsimulations.sh -parallelises the simulations
+- allele_freq_sims/cluster/nullMAFsimulations.sh - parallelises the simulations
 	
 - allele_freq_sims/cluster/MAF_clusterRun.R - runs the simulations in R
 
@@ -157,14 +152,11 @@ CHAPTER3
 CHAPTER4
 
  code
-- cluster_analysis.R
-	Performs a K-means cluster analysis on the heterothermy data
+- cluster_analysis.R - Performs a K-means cluster analysis on the heterothermy data
 
-- torpor_analysis.R
-	Runs a full analysis of heterothermic responses including estimating repeatability, calculating relatedness and estimating heritability
+- torpor_analysis.R - Runs a full analysis of heterothermic responses including estimating repeatability, calculating relatedness and estimating heritability
 
-- BMR_analysis_REML_Final
-	Runs a full analysis of BMR data from _A. flavicollis_.
+- BMR_analysis_REML_Final - Runs a full analysis of BMR data from _A. flavicollis_.
 
  tables_and_figs	
 	
@@ -173,14 +165,11 @@ CHAPTER4
 	- Number_clusters - number of optimal clusters according to the index
 	- Value_Index - index value
 
-- cluster_analysis/k3.pdf - cluster_analysis/k10.pdf
-	figures of cluster analyses for heterothermy data when K=3-10
+- cluster_analysis/k3.pdf - cluster_analysis/k10.pdf - figures of cluster analyses for heterothermy data when K=3-10
 
-- diagnostic_plots/repeatability/
-	Residuals vs fitted values plots of repeatability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for models of each individual sex
+- diagnostic_plots/repeatability/ - Residuals vs fitted values plots of repeatability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for models of each individual sex
 		
-- diagnostic_plots/heritability/
-	Residuals vs fitted values plots of heritability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for for models of each individual sex
+- diagnostic_plots/heritability/ - Residuals vs fitted values plots of heritability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for for models of each individual sex
 	
 
 
