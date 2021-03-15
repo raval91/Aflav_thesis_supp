@@ -27,14 +27,14 @@ code
  tables_and_figs
 - A.flavicollis_demographic_data.txt
 	Life history and sample ID data on samples
-		- Sample - sample name
-		- ID - ID number
-		- Sex - m for male, f for female
-		- Age - estimated life stage
-		- Trapping_month - month the mouse was trapped
-		- Trapping_year - year the mouse was trapped
-		- Birth_year - estimated birth year 
-		- Dupliated - independently replicated libraries prepared for genotyping error rate estimation. 0 for not duplicated, 1 for duplicated sample 
+	- Sample - sample name
+	- ID - ID number
+	- Sex - m for male, f for female
+	- Age - estimated life stage
+	- Trapping_month - month the mouse was trapped
+	- Trapping_year - year the mouse was trapped
+	- Birth_year - estimated birth year 
+	- Dupliated - independently replicated libraries prepared for genotyping error rate estimation. 0 for not duplicated, 1 for duplicated sample 
 
 - coverage_duplicates_merged.txt
 	Sequencing coverage of samples after duplicate samples have been merged
