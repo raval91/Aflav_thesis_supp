@@ -167,9 +167,9 @@ CHAPTER4
 
 - cluster_analysis/k3.pdf - cluster_analysis/k10.pdf - figures of cluster analyses for heterothermy data when K=3-10
 
-- diagnostic_plots/repeatability/ - Residuals vs fitted values plots of repeatability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for models of each individual sex
+- diagnostic_plots/repeatability/ - Diagnostics plots of repeatability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for models of each individual sex
 		
-- diagnostic_plots/heritability/ - Residuals vs fitted values plots of heritability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for for models of each individual sex
+- diagnostic_plots/heritability/ - Diagnostics plots of heritability models including sex+mb+bmr, sex+mb and mb as variables in the models. Also included are diagnostic plots for for models of each individual sex
 	
 
 
