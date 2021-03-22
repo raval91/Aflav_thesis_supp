@@ -88,7 +88,6 @@ CHAPTER3
 
 - genetic_contributions.R - Calculates the genetic and genealogical contributions of founders to a population
 	
-- genetic_diversity.het - estimates of genetic diversity (inbreeding coefficients) as calculated by PLINK
 
 
  tables_and_figs
@@ -148,6 +147,12 @@ CHAPTER3
 	- pvals_1_2 - significance of allele frequency change between 2015-2016
 	- pvals_2_3 - significance of allele frequency change between 2016-2017
 	- pvals_3_1 - significance of allele frequency change between 2015-2017
+
+- genetic_diversity.het - estimates of genetic diversity (inbreeding coefficients) as calculated by PLINK
+	- IID - sample ID
+	- O(HOM) - observed homozygosity
+	- E(HOM) - expected homozygosity
+	- N(NM) - number of non-missing genotypes
 
 CHAPTER4
 
