@@ -5,6 +5,7 @@ rm(list = ls())
 
 library(visPedigree)
 library(kinship2)
+library(optiSel)
 library(ggplot2)
 library(sequoia)
 library(reshape2)
@@ -30,9 +31,10 @@ pedigree1$fID <- makefamid(pedigree1$Ind, pedigree1$Sire, pedigree1$Dam)
 final_ped <- pedigree(id = pedigree1$Ind, dadid = pedigree1$Sire, momid = pedigree1$Dam, sex = pedigree1$Sex)
 
 # format the pedigree for visped
-pedigree2 <- as.data.frame(final_ped)
-final_visped <- tidyped(pedigree2, trace = "down")
-
+pedigree2 <- as.data.frame(final_ped)#pedigree1[,c(1,3,2,4)]
+final_visped <- tidyped(pedigree2, trace = "down")#tidyped(pedigree1)
+# final_visped <- final_visped[,c(1,3,2,4)]
+# names(final_visped)[1:4] <- c("Ind", "Sire", "Dam", "Sex")
 
 #PLOT PEDIGREE
 plot.pedigree(final_ped, id = rep(NA, length(final_ped$id)))#kinship2
@@ -57,6 +59,10 @@ for(i in 1:length(founders_list_full)){
   gen_contributions[[i]] <- try(tidyped(founders_ped, cand = founders_list_full[i], trace = "down"))
 }
 
+# #extract founders pedigrees
+# for(i in 1:nrow(founders_ped)){
+#   gen_contributions[[i]] <- try(tidyped(founders_ped, cand = founders_ped$Ind[i], trace = "down"))
+# }
 
 ##remove elements of the list with errors due to no descendents
 #list of objects with length 1 (just error messages)
@@ -263,7 +269,7 @@ ggplot(descendants, aes(x = sample, y = descendants)) +
         axis.text.x = element_blank()) +
   scale_y_continuous(breaks = seq(0,40, by = 5))
 
-#subset for founder Af_237 and Af_258
+#subset genealogical and genetic contributions for founder Af_237 and Af_258
 Af_contribs <- contribution[contribution$founders == "Af_237" | contribution$founders == "Af_258",]
 
 #genealogical and genetic contributions of 2 founders to each generation
@@ -282,3 +288,18 @@ ggplot(Af_contribs, aes(x = generation, y = contribution, group = type)) +
         axis.text = element_text(size = 12),
         strip.text.x = element_text(size = 14))
 
+#subset the pedigrees for Af_237 and Af_258, and plot using the optiSel package
+#reorder pedigree1 to have the columns in the following format id,sire,dam
+new_pedigree1 <- pedigree1[,c(1,3,2,4,5)]
+
+#ensure the format is correcct for the whole pedigree
+new_pedigree1 <- subPed(new_pedigree1, succGen = 4, keep = new_pedigree1$Ind)
+
+#subset the pedigree for Af_237 and its descendants
+Af_237Kinship <- subPed(Pedig = new_pedigree1, keep = "Af_237", succGen = 4)
+
+subset_pedigree <- subPed(Pedig = new_pedigree1, keep = c("Af_237", "Af_258"), succGen = 4)
+
+#plot the pedigree using optiSel
+pedplot(Af_237Kinship)#Af_237
+pedplot(subset_pedigree, label = NULL)
